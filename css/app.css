@@ -1,0 +1,50 @@
+/*Applicaton Styles*/
+
+.row-app {
+	height: 60px;
+	margin-top: 2px;
+}
+
+.banner-title {
+    font-size: 1.6em;
+    font-family: "Comic Sans MS", cursive;
+    color: #1B55A6;
+    text-shadow: 1px 1px #ccc, 1px 1px 2px #000;
+    padding-top: 10px;
+}
+
+.banner-buttons {
+    font-size: 1.6em;
+    font-family: "Comic Sans MS", cursive;
+    color: #1B55A6;
+    text-shadow: 1px 1px #ccc, 1px 1px 2px #000;
+    padding-top: 10px;
+    text-align: right;
+}
+
+.footer {
+	text-align: center;
+}
+
+.jumbotron {
+	width: 450px;
+	background-color: #f4f4f4;
+	margin-left: auto;
+	margin-right: auto;
+
+}
+
+.form-control {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.forgot {
+	width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+	color: red;
+}

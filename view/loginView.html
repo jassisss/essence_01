@@ -1,0 +1,14 @@
+<div class="jumbotron" ng-controller="loginCtrl">
+	<h3 style="text-align: center;">{{nomeCtrl}}</h3>
+	<hr>
+	<form name="loginForm">
+		<input ng-model="login.email" type="email" name="email" class="form-control" placeholder="E-mail" ng-required="true">
+<!-- 		<ul class="forgot" ng-show="loginForm.email.$dirty || loginForm.email.$error.required">
+			<li><p>E-mail inválido!</p></li>
+		</ul> -->
+
+		<input ng-model="login.senha" type="password" name="senha" class="form-control" placeholder="Senha" ng-required="true">
+		<p class="forgot"><a href="">Esqueceu a senha?</a></p>
+		<button class="btn btn-primary btn-block form-control" ng-disabled="loginForm.$invalid">Entrar</button>
+	</form>
+</div>
