@@ -1,0 +1,28 @@
+<div class="container">
+	
+	<nav aria-label="breadcrumb">
+	  <ol class="breadcrumb">
+	    <li class="breadcrumb-item"><a href="#/login">Login</a></li>
+	    <li class="breadcrumb-item active" aria-current="page">Recuperar senha</li>
+	  </ol>
+	</nav>
+
+	<div class="jumbotron">
+		<h3 style="text-align: center;">{{forgotNomeCtrl}}</h3>
+		<hr>
+		<form name="forgotForm">
+			<h6 class="valSenhaTxt">Será enviado um e-mail para o endereço abaixo para validação da senha.</h6>
+			<br />
+			<input ng-model="forgot.email" type="email" name="forgotEmail" class="form-control" placeholder="E-mail" ng-required="true">
+			<div class="forgot" ng-messages="forgotForm.forgotEmail.$error" ng-if="forgotForm.forgotEmail.$dirty">
+				<p ng-message="required">E-mail é um campo obrigatório!</p>
+				<p ng-message="email">O e-mail é inválido!</p>
+			</div>
+
+		</form>
+		
+		<button class="btn btn-primary btn-block form-control" ng-disabled="forgotForm.$invalid">Enviar</button>
+
+	</div>
+
+</div>

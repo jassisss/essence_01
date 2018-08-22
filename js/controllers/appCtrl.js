@@ -1,10 +1,5 @@
-(function () {
-	'use strict';
-	
-	angular.module("essence").controller('appCtrl', appCtrl);
+angular.module("essence").controller('appCtrl', function ($scope) {
 
-	function appCtrl ($scope) {
-		$scope.ano = new Date();
-	};	
+	$scope.ano = new Date();
 
-})()
+});

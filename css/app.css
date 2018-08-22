@@ -27,11 +27,18 @@
 }
 
 .jumbotron {
+	margin-top: 30px;
 	width: 450px;
 	background-color: #f4f4f4;
 	margin-left: auto;
 	margin-right: auto;
 
+}
+
+.breadcrumb {
+	margin : 0px;
+	padding: 0px;
+	background-color: transparent;
 }
 
 .form-control {
@@ -43,8 +50,26 @@
 }
 
 .forgot {
+	height: auto;
 	width: 300px;
 	margin-left: auto;
 	margin-right: auto;
+	margin-top: 0px;
+	margin-bottom: 0px;
 	color: red;
+}
+
+.register {
+	height: auto;
+	width: 150px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+	margin-bottom: 0px;
+	color: blue;	
+}
+
+.valSenhaTxt {
+	color: green;
+	text-align: center;
 }

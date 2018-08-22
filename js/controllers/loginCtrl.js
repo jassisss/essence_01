@@ -1,9 +1,10 @@
-(function () {
-	'use strict';
-	angular.module("essence").controller('loginCtrl', loginCtrl);
+angular.module("essence").controller('loginCtrl', function ($scope) {
+	$scope.loginNomeCtrl = "Formulário de Entrada";
 
-	function loginCtrl ($scope) {
-		$scope.nomeCtrl = "Formulário de Entrada";
+	$scope.resetLoginForm = function (email) {
+		delete $scope.login;
+		$scope.loginForm.$setPristine();
+
 	};	
+});
 
-})()

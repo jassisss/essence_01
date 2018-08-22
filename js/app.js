@@ -1,6 +1,3 @@
-(function () {
-	'use strict';
-
-	angular.module("essence",["ngMessages"]);
+angular.module("essence",["ngMessages", "ngRoute"]);
 	
-})();
+

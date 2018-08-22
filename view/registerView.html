@@ -1,0 +1,42 @@
+<div class="container">
+	
+	<nav aria-label="breadcrumb">
+	  <ol class="breadcrumb">
+	    <li class="breadcrumb-item"><a href="#/login">Login</a></li>
+	    <li class="breadcrumb-item active" aria-current="page">Registrar</li>
+	  </ol>
+	</nav>
+
+
+	<div class="jumbotron">
+		<h3 style="text-align: center;">{{registerNomeCtrl}}</h3>
+		<hr>
+		<form name="registerForm">
+			
+			<input ng-model="register.nomeRegister" type="text" name="nomeRegister" class="form-control" placeholder="Nome" ng-required="true">
+			<div class="forgot" ng-messages="registerForm.nomeRegister.$error" ng-if="registerForm.nomeRegister.$dirty">
+				<p ng-message="required">Nome é um campo obrigatório!</p>
+			</div>
+
+			<input ng-model="register.emailRegister" type="email" name="emailRegister" class="form-control" placeholder="E-mail" ng-required="true">
+			<div class="forgot" ng-messages="registerForm.emailRegister.$error" ng-if="registerForm.emailRegister.$dirty">
+				<p ng-message="required">E-mail é um campo obrigatório!</p>
+				<p ng-message="email">O e-mail é inválido!</p>
+			</div>
+
+			<input ng-model="register.senhaRegister" type="password" name="senhaRegister" class="form-control" placeholder="Senha" ng-required="true">
+			<div class="forgot" ng-messages="registerForm.senhaRegister.$error" ng-if="registerForm.senhaRegister.$dirty">
+				<p ng-message="required">Senha é um campo obrigatório!</p>
+			</div>
+			
+			<input ng-model="register.confirmSenhaRegister" type="password" name="confirmSenhaRegister" class="form-control" placeholder="Confirmar senha" ng-required="true">
+			<div class="forgot" ng-messages="registerForm.confirmSenhaRegister.$error" ng-if="registerForm.confirmSenhaRegister.$dirty">
+				<p ng-message="required">Confirmar a senha é um campo obrigatório!</p>
+			</div>
+
+		</form>
+		<button class="btn btn-primary btn-block form-control" ng-disabled="registerForm.$invalid">Registrar</button>
+
+	</div>
+
+</div>
