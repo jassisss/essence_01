@@ -1,0 +1,55 @@
+<div class="container list">
+	<nav aria-label="breadcrumb">
+	  <ol class="breadcrumb">
+	    <li class="breadcrumb-item active" aria-current="page">{{listUsersNameCtrl}}</li>
+	  </ol>
+	</nav>
+
+	<div class="jumbotron bordered">
+		<h3 style="text-align: center;">{{listUsersNameCtrl}}</h3>
+		<table class="table">
+		  <thead>
+		    <tr>
+		      <th>Nome</th>
+		      <th>E-mail</th>
+		      <th>Tipo</th>
+		      <th>Última Alteração</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr ng-repeat="user in users">
+		      <td>{{user.name}}</td>
+		      <td>{{user.email}}</td>
+		      <td>{{user.type}}</td>
+		      <td>{{user.modifyDate | date:"dd/MM/yyyy hh:mm"}}</td>
+		    </tr>
+		   </tbody>
+		</table>
+
+		<nav class="navbar navbar-expand-lg navbar-light bg-light bordered">
+		<a class="navbar-brand" href="#"></a>  
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarCollapse">
+		    <ul class="navbar-nav mr-auto">
+		      <li class="nav-item" title="Adicionar Usuário">
+				<a href="#/addUser"><i class="fa fa-user-plus">&nbsp;&nbsp;&nbsp;&nbsp;</i></a>
+			  </li>
+		      <li class="nav-item" title="Editar Usuário">
+				<a href="#/"><i class="fa fa-edit">&nbsp;&nbsp;&nbsp;&nbsp;</i></a>
+			  </li>
+		      <li class="nav-item" title="Alterar Senha">
+				<a href="#/"><i class="fa fa-lock">&nbsp;&nbsp;&nbsp;&nbsp;</i></a>
+			  </li>
+		      <li class="nav-item" title="Recarregar Lista">
+				<a href="#/listUsers"><i class="fa fa-sync">&nbsp;&nbsp;&nbsp;&nbsp;</i></a>
+			  </li>
+		    </ul>
+		    <a href="#/" title="Fechar Lista"><i class="fa fa-times-circle"></i></a>
+		  </div>
+		</nav>
+
+	</div>
+
+</div>

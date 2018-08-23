@@ -15,6 +15,16 @@ angular.module("essence").config(function ($routeProvider) {
 		controller: "forgotCtrl",
 	});
 
+	$routeProvider.when("/listUsers", {
+		templateUrl: "view/listUsersView.html",
+		controller: "listUsersCtrl",
+	});
+
+	$routeProvider.when("/addUser", {
+		templateUrl: "view/addUserView.html",
+		controller: "listUsersCtrl",
+	});
+
 	$routeProvider.otherwise({redirectTo: "/login"});
 
 });

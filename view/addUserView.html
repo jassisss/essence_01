@@ -1,0 +1,63 @@
+<div class="container">
+	
+	<nav aria-label="breadcrumb">
+	  <ol class="breadcrumb">
+	    <li class="breadcrumb-item"><a href="#/listUsers">{{listUsersNameCtrl}}</a></li>
+	    <li class="breadcrumb-item active" aria-current="page">{{addUsersNameCtrl}}</li>
+	  </ol>
+	</nav>
+
+
+	<div class="jumbotron  bordered">
+		<h3 style="text-align: center;">{{addUsersNameCtrl}}</h3>
+		<hr>
+		<form name="addUserForm">
+			
+			<input ng-model="register.nomeRegister" type="text" name="nomeRegister" class="form-control" placeholder="Nome" ng-required="true">
+			<div class="forgot" ng-messages="addUserForm.nomeRegister.$error" ng-if="addUserForm.nomeRegister.$dirty">
+				<p ng-message="required">Nome é um campo obrigatório!</p>
+			</div>
+
+			<input ng-model="register.emailRegister" type="email" name="emailRegister" class="form-control" placeholder="E-mail" ng-required="true">
+			<div class="forgot" ng-messages="addUserForm.emailRegister.$error" ng-if="addUserForm.emailRegister.$dirty">
+				<p ng-message="required">E-mail é um campo obrigatório!</p>
+				<p ng-message="email">O e-mail é inválido!</p>
+			</div>
+
+			<input ng-model="register.senhaRegister" type="password" name="senhaRegister" class="form-control" placeholder="Senha" ng-required="true">
+			<div class="forgot" ng-messages="addUserForm.senhaRegister.$error" ng-if="addUserForm.senhaRegister.$dirty">
+				<p ng-message="required">Senha é um campo obrigatório!</p>
+			</div>
+			
+			<input ng-model="register.confirmSenhaRegister" type="password" name="confirmSenhaRegister" class="form-control" placeholder="Confirmar senha" ng-required="true">
+			<div class="forgot" ng-messages="addUserForm.confirmSenhaRegister.$error" ng-if="addUserForm.confirmSenhaRegister.$dirty">
+				<p ng-message="required">Confirmar a senha é um campo obrigatório!</p>
+			</div>
+
+		</form>
+		<button class="btn btn-primary btn-block form-control" ng-disabled="addUserForm.$invalid">Adicionar</button>
+
+		<nav class="navbar navbar-expand-lg navbar-light bg-light bordered">
+		<a class="navbar-brand" href="#"></a>  
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarCollapse">
+
+		    <ul class="navbar-nav mr-auto">
+		      <li class="nav-item" title="Confirma Adição">
+				<a href="#/login" ng-disabled="addUserForm.$invalid"><i class="fa fa-save">&nbsp;&nbsp;&nbsp;&nbsp;</i></a>
+			  </li>
+
+		      <li class="nav-item" title="Limpa Edição">
+				<a href="#/addUser"><i class="fa fa-redo">&nbsp;&nbsp;&nbsp;&nbsp;</i></a>
+			  </li>
+		    </ul>
+		    <a href="#/listUsers" title="Voltar"><i class="fa fa-arrow-circle-left"></i></a>
+		  </div>
+		</nav>
+
+
+	</div>
+
+</div>
