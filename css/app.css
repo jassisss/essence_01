@@ -75,6 +75,10 @@
 	text-align: center;
 }
 
+.appNavItem {
+	list-style-type: none
+}
+
 /*Subscribe Bootstrap Styles*/
 
 .navbar {

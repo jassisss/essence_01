@@ -22,7 +22,7 @@ angular.module("essence").config(function ($routeProvider) {
 
 	$routeProvider.when("/addUser", {
 		templateUrl: "view/addUserView.html",
-		controller: "listUsersCtrl",
+		controller: "addUserCtrl",
 	});
 
 	$routeProvider.otherwise({redirectTo: "/login"});
