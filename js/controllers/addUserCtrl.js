@@ -1,4 +1,4 @@
-angular.module('essence').controller('addUserCtrl', function($scope, $location, $http, usersApi) {
+angular.module('essence').controller('addUserCtrl', function($scope, $location, $http, usersApi, idGenerator) {
 
 	$scope.listUsersNameCtrl = "Lista de Usuários";
 	$scope.addUsersNameCtrl = "Adicionar Usuário";
@@ -19,7 +19,18 @@ angular.module('essence').controller('addUserCtrl', function($scope, $location, 
 		});
 	};
 
+	$scope.reloadAddUser = function () {
+		delete $scope.user;
+		$scope.addUserForm.$setPristine();
+		$location.path("/addUser");
+	};
+
+	// console.log(idGenerator.generate($scope.users, 'idUser'));
+	// console.log($scope.users, 'idUser');
+	// console.log(loadUsers());
+
 	$scope.addUser = function (user) {
+		user.idUser = idGenerator.generate($scope.users);
 		user.creationDate= new Date();
 		user.modifyDate= new Date();
 		usersApi.saveUser(user).success(function (data) {

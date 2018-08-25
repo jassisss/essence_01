@@ -1,5 +1,9 @@
 /*Applicaton Styles*/
 
+.app-title {
+	color: #2922BB;
+} 
+
 .bordered {
     border-bottom-color: rgb(212, 212, 212);
     border-bottom-left-radius: 4px;
@@ -77,6 +81,15 @@
 
 .appNavItem {
 	list-style-type: none
+}
+
+.appNavContainer {
+	border: 1px solid #D6D6D7;
+	background: -webkit-linear-gradient(top, #E3E3E4, #B2B9FA);
+	background:    -moz-linear-gradient(top, #E3E3E4, #B2B9FA);
+	background:     -ms-linear-gradient(top, #E3E3E4, #B2B9FA);
+	background:      -o-linear-gradient(top, #E3E3E4, #B2B9FA);
+	background:         linear-gradient(top, #E3E3E4, #B2B9FA);
 }
 
 /*Subscribe Bootstrap Styles*/
