@@ -1,15 +1,22 @@
-app.controller('addUserCtrl', function($scope, $location, $http, usersApi, idGenerator) {
+app.controller('updateUserCtrl', function($scope, $location, $http, usersApi, idGenerator) {
 
 	$scope.listUsersNameCtrl = "Lista de Usuários";
-	$scope.addUsersNameCtrl = "Adicionar Usuário";
+	$scope.updateUsersNameCtrl = "Editar Usuário";
 
 
 	$scope.users = [];
+	$scope.user = [];
 	$scope.types = [];
 
 	var loadUsers = function () {
 		usersApi.getUsers().success(function (data) {
 			$scope.users = data;
+		});
+	};
+
+	var loadUser = function () {
+		usersApi.getUser($scope.idUserSelected).success(function (data) {
+			$scope.user = data;
 		});
 	};
 
@@ -19,7 +26,7 @@ app.controller('addUserCtrl', function($scope, $location, $http, usersApi, idGen
 		});
 	};
 
-	$scope.reloadAddUser = function () {
+	$scope.reloadUpdateUser = function () {
 		delete $scope.user;
 		$scope.addUserForm.$setPristine();
 		$location.path("/addUser");
@@ -29,19 +36,19 @@ app.controller('addUserCtrl', function($scope, $location, $http, usersApi, idGen
 	// console.log($scope.users, 'idUser');
 	// console.log(loadUsers());
 
-	$scope.addUser = function (user) {
-		user.idUser = idGenerator.generate($scope.users);
-		user.creationDate= new Date();
+	$scope.updateUser = function (user) {
+		user.idUser = $scope.user.idUser;
+		user.creationDate= $scope.user.creationDate;
 		user.modifyDate= new Date();
-		usersApi.saveUser(user).success(function (data) {
-			delete $scope.user;
-			$scope.addUserForm.$setPristine();
+		usersApi.updateUser(user).success(function (data) {
+			$scope.updateUserForm.$setPristine();
 			loadUsers();
 			$location.path("/listUsers");
 		});
 	};
 
 	loadUsers();
+	loadUser();
 	loadTypes();
 
 });

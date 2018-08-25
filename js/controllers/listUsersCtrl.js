@@ -1,4 +1,4 @@
-angular.module('essence').controller('listUsersCtrl', function($scope, usersApi, $location) {
+app.controller('listUsersCtrl', function($scope, usersApi, $location) {
 
 	$scope.listUsersNameCtrl = "Lista de Usuários";
 

@@ -25,6 +25,11 @@ angular.module("essence").config(function ($routeProvider) {
 		controller: "addUserCtrl",
 	});
 
+	$routeProvider.when("/updateUser", {
+		templateUrl: "view/updateUserView.html",
+		controller: "updateUserCtrl",
+	});
+
 	$routeProvider.otherwise({redirectTo: "/login"});
 
 });

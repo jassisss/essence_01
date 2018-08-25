@@ -1,4 +1,4 @@
-angular.module('essence').provider('idGenerator', function(){
+app.provider('idGenerator', function(){
 
 	this.$get = function () {
 		return {

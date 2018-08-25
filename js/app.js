@@ -1,10 +1,11 @@
 var app = angular.module("essence",["ngMessages", "ngRoute"]);
 
-app.run(function($rootScope) {
-    $rootScope.idUserSelected = 0;
-	$rootScope.changeIdUserSelected = function(id) {
-		$rootScope.idUserSelected = id;
-  };
-});
+	app.run(function($rootScope) {
+	    $rootScope.idUserSelected = 0;
+		$rootScope.changeIdUserSelected = function(id) {
+			$rootScope.idUserSelected = id;
+  		};
+
+	});
 	
 
