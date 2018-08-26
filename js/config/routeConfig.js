@@ -25,6 +25,11 @@ angular.module("essence").config(function ($routeProvider) {
 		controller: "addUserCtrl",
 	});
 
+	$routeProvider.when("/deleteUser", {
+		templateUrl: "view/deleteUserModalView.html",
+		controller: "deleteUserCtrl",
+	});
+
 	$routeProvider.when("/updateUser", {
 		templateUrl: "view/updateUserView.html",
 		controller: "updateUserCtrl",

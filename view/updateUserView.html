@@ -30,15 +30,14 @@
 				<p ng-message="required">E-mail é um campo obrigatório!</p>
 				<p ng-message="email">O e-mail é inválido!</p>
 			</div>
-
 		</form>
 
 		<ul class="nav bordered appNavContainer">
-		      <li class="nav-item" title="Confirma Adição" ng-show="updateUserForm.$valid">
-				<a class="nav-link" href="" ng-click="addUser(user)"><i class="fa fa-check"></i></a>
+		      <li class="nav-item" title="Confirma Adição" ng-show="updateUserForm.$dirty">
+				<a class="nav-link" href="" ng-click="updateUser(user)"><i class="fa fa-check"></i></a>
 			  </li>
 		      <li class="nav-item" title="Limpa Formulário">
-				<a class="nav-link" href="" ng-click="reloadAddUser()"><i class="fa fa-redo"></i></a>
+				<a class="nav-link" href="" ng-click="reloadUpdateUser()"><i class="fa fa-redo"></i></a>
 			  </li>
 		</ul>
 

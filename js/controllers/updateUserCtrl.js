@@ -27,20 +27,18 @@ app.controller('updateUserCtrl', function($scope, $location, $http, usersApi, id
 	};
 
 	$scope.reloadUpdateUser = function () {
-		delete $scope.user;
-		$scope.addUserForm.$setPristine();
-		$location.path("/addUser");
+		loadUser();
+		$scope.updateUserForm.$setPristine();
+		$location.path("/updateUser");
 	};
 
-	// console.log(idGenerator.generate($scope.users, 'idUser'));
-	// console.log($scope.users, 'idUser');
-	// console.log(loadUsers());
+	var userIdUpdate = $scope.idUserSelected;
 
 	$scope.updateUser = function (user) {
 		user.idUser = $scope.user.idUser;
 		user.creationDate= $scope.user.creationDate;
 		user.modifyDate= new Date();
-		usersApi.updateUser(user).success(function (data) {
+		usersApi.updateUser($scope.idUserSelected, user).success(function (data) {
 			$scope.updateUserForm.$setPristine();
 			loadUsers();
 			$location.path("/listUsers");

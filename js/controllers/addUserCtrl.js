@@ -6,6 +6,7 @@ app.controller('addUserCtrl', function($scope, $location, $http, usersApi, idGen
 
 	$scope.users = [];
 	$scope.types = [];
+	$scope.newPassword = '';
 
 	var loadUsers = function () {
 		usersApi.getUsers().success(function (data) {
@@ -25,10 +26,6 @@ app.controller('addUserCtrl', function($scope, $location, $http, usersApi, idGen
 		$location.path("/addUser");
 	};
 
-	// console.log(idGenerator.generate($scope.users, 'idUser'));
-	// console.log($scope.users, 'idUser');
-	// console.log(loadUsers());
-
 	$scope.addUser = function (user) {
 		user.idUser = idGenerator.generate($scope.users);
 		user.creationDate= new Date();
@@ -36,7 +33,6 @@ app.controller('addUserCtrl', function($scope, $location, $http, usersApi, idGen
 		usersApi.saveUser(user).success(function (data) {
 			delete $scope.user;
 			$scope.addUserForm.$setPristine();
-			loadUsers();
 			$location.path("/listUsers");
 		});
 	};
