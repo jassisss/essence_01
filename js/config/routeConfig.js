@@ -4,6 +4,16 @@ angular.module("essence").config(function ($routeProvider) {
 		templateUrl: "view/loginView.html",
 		controller: "loginCtrl",
 	});
+
+	$routeProvider.when("/adminUser", {
+		templateUrl: "view/adminUserView.html",
+		controller: "loginCtrl",
+	});
+
+	$routeProvider.when("/visitorUser", {
+		templateUrl: "view/visitorUserView.html",
+		controller: "loginCtrl",
+	});
 	
 	$routeProvider.when("/register", {
 		templateUrl: "view/registerView.html",
@@ -26,7 +36,7 @@ angular.module("essence").config(function ($routeProvider) {
 	});
 
 	$routeProvider.when("/deleteUser", {
-		templateUrl: "view/deleteUserModalView.html",
+		templateUrl: "view/deleteUserView.html",
 		controller: "deleteUserCtrl",
 	});
 

@@ -1,5 +1,9 @@
 angular.module('essence').factory('usersApi', function($http, config) {
 
+	var _loginUser = function(user) {
+		return $http.post(config.baseUrl + "/login", user);		
+	};
+
 	var _getUsers = function() {
 		return $http.get(config.baseUrl + "/users");		
 	};
@@ -25,6 +29,7 @@ angular.module('essence').factory('usersApi', function($http, config) {
 	};
 
 	return {
+		loginUser: _loginUser,
 		getUsers: _getUsers,
 		getUser: _getUser,
 		saveUser: _saveUser,

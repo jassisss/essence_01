@@ -7,6 +7,7 @@ app.controller('addUserCtrl', function($scope, $location, $http, usersApi, idGen
 	$scope.users = [];
 	$scope.types = [];
 	$scope.newPassword = '';
+	$scope.userExit = false;
 
 	var loadUsers = function () {
 		usersApi.getUsers().success(function (data) {
@@ -22,8 +23,10 @@ app.controller('addUserCtrl', function($scope, $location, $http, usersApi, idGen
 
 	$scope.reloadAddUser = function () {
 		delete $scope.user;
+		$scope.newPassword = '';
 		$scope.addUserForm.$setPristine();
 		$location.path("/addUser");
+		$scope.userExit = false;
 	};
 
 	$scope.addUser = function (user) {
@@ -34,6 +37,11 @@ app.controller('addUserCtrl', function($scope, $location, $http, usersApi, idGen
 			delete $scope.user;
 			$scope.addUserForm.$setPristine();
 			$location.path("/listUsers");
+		}).error(function() {
+			$scope.userExit = true;
+			delete $scope.user;
+			$scope.newPassword = '';
+			$scope.addUserForm.$setPristine();
 		});
 	};
 
