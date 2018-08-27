@@ -1,4 +1,6 @@
-angular.module("essence").controller('loginCtrl', function ($scope, $location, usersApi) {
+app.controller('loginCtrl', loginCtrl);
+
+function loginCtrl ($scope, $location, usersApi) {
 	
 	$scope.loginNomeCtrl = "Formulário de Entrada";
 
@@ -7,6 +9,7 @@ angular.module("essence").controller('loginCtrl', function ($scope, $location, u
 	$scope.validateUser = function (login) {
 		usersApi.loginUser(login).success(function (data) {
 			delete $scope.login;
+			$scope.userNotExit = false;
 			$scope.loginForm.$setPristine();
 			if (data.type.name === 'Administrador') {
 				$location.path("/adminUser");
@@ -21,8 +24,5 @@ angular.module("essence").controller('loginCtrl', function ($scope, $location, u
 
 	};	
 
-
-
-
-});
+};
 

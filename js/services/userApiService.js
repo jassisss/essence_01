@@ -1,4 +1,4 @@
-angular.module('essence').factory('usersApi', function($http, config) {
+app.factory('usersApi', function($http, config) {
 
 	var _loginUser = function(user) {
 		return $http.post(config.baseUrl + "/login", user);		

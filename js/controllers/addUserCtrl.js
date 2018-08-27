@@ -1,25 +1,13 @@
-app.controller('addUserCtrl', function($scope, $location, $http, usersApi, idGenerator) {
+app.controller('addUserCtrl', function($scope, $location, idGenerator, users, types, usersApi) {
 
 	$scope.listUsersNameCtrl = "Lista de Usuários";
 	$scope.addUsersNameCtrl = "Adicionar Usuário";
 
 
-	$scope.users = [];
-	$scope.types = [];
+	$scope.users = users.data;
+	$scope.types = types.data;
 	$scope.newPassword = '';
 	$scope.userExit = false;
-
-	var loadUsers = function () {
-		usersApi.getUsers().success(function (data) {
-			$scope.users = data;
-		});
-	};
-
-	var loadTypes = function () {
-		usersApi.getTypes().success(function (data) {
-			$scope.types = data;
-		});
-	};
 
 	$scope.reloadAddUser = function () {
 		delete $scope.user;
@@ -44,8 +32,5 @@ app.controller('addUserCtrl', function($scope, $location, $http, usersApi, idGen
 			$scope.addUserForm.$setPristine();
 		});
 	};
-
-	loadUsers();
-	loadTypes();
 
 });

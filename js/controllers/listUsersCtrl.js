@@ -1,29 +1,19 @@
-app.controller('listUsersCtrl', function($scope, usersApi, $location) {
+app.controller('listUsersCtrl', function($scope, $location, users) {
 
 	$scope.listUsersNameCtrl = "Lista de Usuários";
 
-	$scope.users = [];
+	$scope.users = users.data;
 
 	$scope.mostra = false;
 
-	var loadUsers = function () {
-		usersApi.getUsers().success(function (data) {
-			$scope.users = data;
-		});
-	};
-
-
 	$scope.reloadUser = function() {
 		$scope.mostra = false;
-		loadUsers();
-		$location.path("/listUsers");
+		$location.path("/reloadListUsers");
 	};
 
 	$scope.pegar = function(data) {
         $scope.mostra = true;
         $scope.changeIdUserSelected(data.idUser);
     }
-
-	loadUsers();
 
 });

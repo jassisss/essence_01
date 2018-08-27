@@ -1,35 +1,16 @@
-app.controller('updateUserCtrl', function($scope, $location, $http, usersApi, idGenerator) {
+app.controller('updateUserCtrl', function($scope, $location, $http, usersApi, user, users, types) {
 
 	$scope.listUsersNameCtrl = "Lista de Usuários";
 	$scope.updateUsersNameCtrl = "Editar Usuário";
 
 
-	$scope.users = [];
-	$scope.user = [];
-	$scope.types = [];
-
-	var loadUsers = function () {
-		usersApi.getUsers().success(function (data) {
-			$scope.users = data;
-		});
-	};
-
-	var loadUser = function () {
-		usersApi.getUser($scope.idUserSelected).success(function (data) {
-			$scope.user = data;
-		});
-	};
-
-	var loadTypes = function () {
-		usersApi.getTypes().success(function (data) {
-			$scope.types = data;
-		});
-	};
+	$scope.users = users.data;
+	$scope.user = user.data;
+	$scope.types = types.data;
 
 	$scope.reloadUpdateUser = function () {
-		loadUser();
 		$scope.updateUserForm.$setPristine();
-		$location.path("/updateUser");
+		$location.path("/reloadUpdateUser/" + $scope.idUserSelected);
 	};
 
 	var userIdUpdate = $scope.idUserSelected;
@@ -40,13 +21,8 @@ app.controller('updateUserCtrl', function($scope, $location, $http, usersApi, id
 		user.modifyDate= new Date();
 		usersApi.updateUser($scope.idUserSelected, user).success(function (data) {
 			$scope.updateUserForm.$setPristine();
-			loadUsers();
 			$location.path("/listUsers");
 		});
 	};
-
-	loadUsers();
-	loadUser();
-	loadTypes();
 
 });
