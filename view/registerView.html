@@ -29,7 +29,7 @@
 				<p ng-message="required">Senha é um campo obrigatório!</p>
 			</div>
 			
-			<input ng-model="register.confirmSenhaRegister" type="password" name="confirmSenhaRegister" class="form-control" placeholder="Confirmar senha" ng-required="true">
+			<input ng-model="register.confirmSenhaRegister" type="password" name="confirmSenhaRegister" class="form-control" placeholder="Confirmar senha" ng-required="true" confirmPassword="true">
 			<div class="forgot" ng-messages="registerForm.confirmSenhaRegister.$error" ng-if="registerForm.confirmSenhaRegister.$dirty">
 				<p ng-message="required">Confirmar a senha é um campo obrigatório!</p>
 			</div>
