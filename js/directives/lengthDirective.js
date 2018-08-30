@@ -1,13 +1,13 @@
 (function() {
     'use strict';
 
-    app.directive("confirmPassword", confirmPassword);
+    app.directive("ngLength", ngLength);
 
-    function confirmPassword($filter) {
+    function ngLength($filter) {
         return {
             require: "ngModel",
             scope: {
-                confirmPassword: '='
+                ngLength: '='
             },
             link: function (scope, element, attrs, ctrl) {
                 var _formatInput = function (date) {
@@ -21,8 +21,8 @@
                 });
 
                 ctrl.$parsers.push(function (value) {
-                    if (value.length >= scope.confirmPassword.length) {
-                        var isValid = (value === scope.confirmPassword);
+                    if (value.length >= scope.ngLength.length) {
+                        var isValid = (value === scope.ngLength);
                         return ctrl.$setValidity('confirm', isValid);;
                     }
                 });

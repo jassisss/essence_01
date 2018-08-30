@@ -28,10 +28,11 @@
 			<div class="forgot" ng-messages="registerForm.senhaRegister.$error" ng-if="registerForm.senhaRegister.$dirty">
 				<p ng-message="required">Senha é um campo obrigatório!</p>
 			</div>
-			
-			<input ng-model="register.confirmSenhaRegister" type="password" name="confirmSenhaRegister" class="form-control" placeholder="Confirmar senha" ng-required="true" confirmPassword="true">
+			{{register.confirmSenhaRegister}}
+			<input ng-model="register.confirmSenhaRegister" type="password" name="confirmSenhaRegister" class="form-control" placeholder="Confirmar senha" ng-required="true" confirm-password="register.senhaRegister">
 			<div class="forgot" ng-messages="registerForm.confirmSenhaRegister.$error" ng-if="registerForm.confirmSenhaRegister.$dirty">
 				<p ng-message="required">Confirmar a senha é um campo obrigatório!</p>
+				<p ng-message="confirm">As senhas devem de as mesmas!</p>
 			</div>
 
 		</form>
