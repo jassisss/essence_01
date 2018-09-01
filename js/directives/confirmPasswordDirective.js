@@ -10,9 +10,9 @@
                 confirmPassword: '='
             },
             link: function (scope, element, attrs, ctrl) {
-                var _formatInput = function (date) {
-
-                    return date;
+                var _formatInput = function (data) {
+                	
+                    return data;
                 };
 
                 element.bind("keyup", function () {

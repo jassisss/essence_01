@@ -7,6 +7,7 @@ app.controller('addUserCtrl', function($scope, $location, idGenerator, users, ty
 	$scope.users = users.data;
 	$scope.types = types.data;
 	$scope.newPassword = '';
+	$scope.newPassword.$setPristine();
 	$scope.userExit = false;
 
 	$scope.reloadAddUser = function () {
@@ -29,6 +30,7 @@ app.controller('addUserCtrl', function($scope, $location, idGenerator, users, ty
 			$scope.userExit = true;
 			delete $scope.user;
 			$scope.newPassword = '';
+			$scope.newPassword.$setPristine();
 			$scope.addUserForm.$setPristine();
 		});
 	};

@@ -28,15 +28,28 @@
 			<div class="forgot" ng-messages="registerForm.senhaRegister.$error" ng-if="registerForm.senhaRegister.$dirty">
 				<p ng-message="required">Senha é um campo obrigatório!</p>
 			</div>
-			{{register.confirmSenhaRegister}}
+
 			<input ng-model="register.confirmSenhaRegister" type="password" name="confirmSenhaRegister" class="form-control" placeholder="Confirmar senha" ng-required="true" confirm-password="register.senhaRegister">
 			<div class="forgot" ng-messages="registerForm.confirmSenhaRegister.$error" ng-if="registerForm.confirmSenhaRegister.$dirty">
 				<p ng-message="required">Confirmar a senha é um campo obrigatório!</p>
-				<p ng-message="confirm">As senhas devem de as mesmas!</p>
+				<p ng-message="confirm">As senhas devem conferir!</p>
 			</div>
+
+			{{registerForm.$invalid}}
 
 		</form>
 		<button class="btn btn-primary btn-block form-control" ng-disabled="registerForm.$invalid">Registrar</button>
+
+		</form>
+
+		<ul class="nav bordered appNavContainer">
+		      <li class="nav-item" title="Confirma Adição" ng-show="registerForm.$valid">
+				<a class="nav-link" href="" ng-click="registerUser(user)"><i class="fa fa-check"></i></a>
+			  </li>
+		      <li class="nav-item" title="Limpa Formulário">
+				<a class="nav-link" href="" ng-click="resetRegisterForm()"><i class="fa fa-redo"></i></a>
+			  </li>
+		</ul>
 
 	</div>
 

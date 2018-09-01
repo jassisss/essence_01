@@ -40,9 +40,10 @@
 				<p ng-message="required">Senha é um campo obrigatório!</p>
 			</div>
 			
-			<input ng-model="newPassword" type="password" name="confirmSenhaRegister" class="form-control" placeholder="Confirmar senha" required="true">
-			<div class="forgot" ng-messages="addUserForm.confirmSenhaRegister.$error" ng-if="addUserForm.confirmSenhaRegister.$dirty">
+			<input ng-model="newPassword" type="password" name="confirmSenhaRegister" class="form-control" placeholder="Confirmar senha" required="true" confirm-password="user.password">
+			<div class="forgot" ng-messages="addUserForm.confirmSenhaRegister.$error" ng-if="!addUserForm.confirmSenhaRegister.$pristine">
 				<p ng-message="required">Confirmar a senha é obrigatório!</p>
+				<p ng-message="confirm">As senhas devem conferir!</p>
 			</div>
 
 		</form>
