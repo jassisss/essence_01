@@ -1,23 +1,28 @@
-app.controller('deleteUserCtrl', function($scope, $location, usersApi) {
+(function() {
+    'use strict';
 
-	$scope.listUsersNameCtrl = "Lista de Usuários";
-	$scope.deleteUsersNameCtrl = "Excluir Usuário";
+	app.controller('deleteUserCtrl', function($scope, $location, usersApi) {
+
+		$scope.listUsersNameCtrl = "Lista de Usuários";
+		$scope.deleteUsersNameCtrl = "Excluir Usuário";
 
 
-	$scope.user = [];
+		$scope.user = [];
 
-	var loadUser = function () {
-		usersApi.getUser($scope.idUserSelected).then(function onSuccess(response) {
-			$scope.user = response.data;
-		});
-	};
+		var loadUser = function () {
+			usersApi.getUser($scope.idUserSelected).then(function onSuccess(response) {
+				$scope.user = response.data;
+			});
+		};
 
-	$scope.deleteUser = function () {
-		usersApi.deleteUser($scope.idUserSelected).then(function onSuccess(response) {
-			$location.path("/listUsers");
-		});
-	};
+		$scope.deleteUser = function () {
+			usersApi.deleteUser($scope.idUserSelected).then(function onSuccess(response) {
+				$location.path("/listUsers");
+			});
+		};
 
-	loadUser();
+		loadUser();
 
-});
+	});
+
+})();

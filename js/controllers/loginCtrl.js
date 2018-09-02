@@ -1,28 +1,33 @@
-app.controller('loginCtrl', loginCtrl);
+(function() {
+    'use strict';
 
-function loginCtrl ($scope, $location, usersApi) {
-	
-	$scope.loginNomeCtrl = "Formulário de Entrada";
+	app.controller('loginCtrl', loginCtrl);
 
-	$scope.userNotExit = false;
+	function loginCtrl ($scope, $location, usersApi) {
+		
+		$scope.loginNomeCtrl = "Formulário de Entrada";
 
-	$scope.validateUser = function (login) {
-		usersApi.loginUser(login).then(function onSuccess(response) {
-			delete $scope.login;
-			$scope.userNotExit = false;
-			$scope.loginForm.$setPristine();
-			if (response.data.type.name === 'Administrador') {
-				$location.path("/adminUser");
-			}else{
-				$location.path("/visitorUser");
-			}
-		}).catch(function onError(response) {
-			$scope.userNotExit = true;
-			delete $scope.login;
-			$scope.loginForm.$setPristine();
-		});		
+		$scope.userNotExit = false;
 
-	};	
+		$scope.validateUser = function (login) {
+			usersApi.loginUser(login).then(function onSuccess(response) {
+				delete $scope.login;
+				$scope.userNotExit = false;
+				$scope.loginForm.$setPristine();
+				if (response.data.type.name === 'Administrador') {
+					$location.path("/adminUser");
+				}else{
+					$location.path("/visitorUser");
+				}
+			}).catch(function onError(response) {
+				$scope.userNotExit = true;
+				delete $scope.login;
+				$scope.loginForm.$setPristine();
+			});		
 
-};
+		};	
+
+	};
+
+})();
 

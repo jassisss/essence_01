@@ -1,52 +1,57 @@
-app.controller('registerCtrl', function ($scope, $location, idGenerator, users, usersApi) {
+(function() {
+    'use strict';
 
-	$scope.registerNomeCtrl = "Formulário de Registro";
+	app.controller('registerCtrl', function ($scope, $location, idGenerator, users, usersApi) {
 
-	$scope.registerPasswordChanged = function () {
+		$scope.registerNomeCtrl = "Formulário de Registro";
 
-		if ($scope.register.password !== $scope.newRegisterPassword) {
-			$scope.newRegisterPassword = '';
+		$scope.registerPasswordChanged = function () {
+
+			if ($scope.register.password !== $scope.newRegisterPassword) {
+				$scope.newRegisterPassword = '';
+			};
+
 		};
 
-	};
 
-
-	$scope.users = users.data;
-	$scope.confirmPassword = '';
-	$scope.userExit = false;
-	$scope.emailExist = '';
-
-	$scope.resetRegisterForm = function () {
-		delete $scope.register;
+		$scope.users = users.data;
 		$scope.confirmPassword = '';
-		$scope.registerForm.$setPristine();
 		$scope.userExit = false;
-	};
+		$scope.emailExist = '';
 
-	$scope.registerPasswordChanged = function () {
-
-		if ($scope.register.password !== $scope.confirmPassword) {
-			$scope.confirmPassword = '';
-		};
-
-	};
-
-	$scope.registerUser = function (user) {
-		user.idUser = idGenerator.generate($scope.users);
-		user.creationDate= new Date();
-		user.modifyDate= new Date();
-		user.type = {'idType': 2, name: 'Visitante', code: 2};
-		usersApi.saveUser(user).then(function onSuccess(response) {
-			delete $scope.user;
-			$scope.registerForm.$setPristine();
-			$location.path("/login");
-		}).catch(function onError(response) {
-			$scope.userExit = true;
-			$scope.emailExist = user.email;
+		$scope.resetRegisterForm = function () {
 			delete $scope.register;
 			$scope.confirmPassword = '';
 			$scope.registerForm.$setPristine();
-		});
-	};
+			$scope.userExit = false;
+		};
 
-});
+		$scope.registerPasswordChanged = function () {
+
+			if ($scope.register.password !== $scope.confirmPassword) {
+				$scope.confirmPassword = '';
+			};
+
+		};
+
+		$scope.registerUser = function (user) {
+			user.idUser = idGenerator.generate($scope.users);
+			user.creationDate= new Date();
+			user.modifyDate= new Date();
+			user.type = {'idType': 2, name: 'Visitante', code: 2};
+			usersApi.saveUser(user).then(function onSuccess(response) {
+				delete $scope.user;
+				$scope.registerForm.$setPristine();
+				$location.path("/login");
+			}).catch(function onError(response) {
+				$scope.userExit = true;
+				$scope.emailExist = user.email;
+				delete $scope.register;
+				$scope.confirmPassword = '';
+				$scope.registerForm.$setPristine();
+			});
+		};
+
+	});
+
+})();

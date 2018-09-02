@@ -1,19 +1,24 @@
-app.controller('listUsersCtrl', function($scope, $location, users) {
+(function() {
+    'use strict';
 
-	$scope.listUsersNameCtrl = "Lista de Usuários";
+	app.controller('listUsersCtrl', function($scope, $location, users) {
 
-	$scope.users = users.data;
+		$scope.listUsersNameCtrl = "Lista de Usuários";
 
-	$scope.mostra = false;
+		$scope.users = users.data;
 
-	$scope.reloadUser = function() {
 		$scope.mostra = false;
-		$location.path("/reloadListUsers");
-	};
 
-	$scope.pegar = function(data) {
-        $scope.mostra = true;
-        $scope.changeIdUserSelected(data.idUser);
-    }
+		$scope.reloadUser = function() {
+			$scope.mostra = false;
+			$location.path("/reloadListUsers");
+		};
 
-});
+		$scope.pegar = function(data) {
+	        $scope.mostra = true;
+	        $scope.changeIdUserSelected(data.idUser);
+	    }
+
+	});
+
+})();
