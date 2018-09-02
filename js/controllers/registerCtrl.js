@@ -14,12 +14,12 @@ app.controller('registerCtrl', function ($scope, $location, idGenerator, users, 
 	$scope.users = users.data;
 	$scope.confirmPassword = '';
 	$scope.userExit = false;
-	$scope.login = [];
 
 	$scope.resetRegisterForm = function () {
 		delete $scope.register;
+		$scope.confirmPassword = '';
 		$scope.registerForm.$setPristine();
-
+		$scope.userExit = false;
 	};
 
 	$scope.registerPasswordChanged = function () {
@@ -38,8 +38,6 @@ app.controller('registerCtrl', function ($scope, $location, idGenerator, users, 
 		usersApi.saveUser(user).success(function (data) {
 			delete $scope.user;
 			$scope.registerForm.$setPristine();
-			$scope.login.email = user.email;
-			$scope.login.password = '';
 			$location.path("/login");
 		}).error(function() {
 			$scope.userExit = true;

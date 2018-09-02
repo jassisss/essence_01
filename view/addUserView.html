@@ -39,7 +39,7 @@
 			</div>
 
 			<input ng-model="confirmPassword" type="password" name="confirmSenhaRegister" class="form-control" placeholder="Confirmar senha" required="true" confirm-password="user.password">
-			<div class="forgot" ng-messages="addUserForm.confirmSenhaRegister.$error" ng-if="addUserForm.senhaRegister.$dirty">
+			<div class="forgot" ng-messages="addUserForm.confirmSenhaRegister.$error" ng-if="addUserForm.confirmSenhaRegister.$dirty">
 				<p ng-message="required">Confirmar a senha é obrigatório!</p>
 				<p ng-message="confirm">As senhas devem conferir!</p>
 			</div>

@@ -27,11 +27,11 @@
 			</div>
 
 			<input ng-model="register.password" type="password" name="senhaRegister" class="form-control" placeholder="Senha" ng-required="true" ng-change="registerPasswordChanged()">
-			<div class="forgot" ng-messages="registerForm.senhaRegister.$error" ng-if="registerForm.senhaRegister.$dirty">
+			<div class="forgot" ng-messages="registerForm.password.$error" ng-if="registerForm.password.$dirty">
 				<p ng-message="required">Senha é um campo obrigatório!</p>
 			</div>
 
-			<input ng-model="confirmPassword" type="password" name="confirmSenhaRegister" class="form-control" placeholder="Confirmar senha" ng-required="true" confirm-password="register.password">
+			<input ng-model="confirmPassword" type="password" name="confirmPassword" class="form-control" placeholder="Confirmar senha" ng-required="true" confirm-password="register.password">
 			<div class="forgot" ng-messages="registerForm.confirmPassword.$error" ng-if="registerForm.confirmPassword.$dirty">
 				<p ng-message="required">Confirmar a senha é um campo obrigatório!</p>
 				<p ng-message="confirm">As senhas devem conferir!</p>
