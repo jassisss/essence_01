@@ -13,9 +13,7 @@
 		<h3 class="app-title" style="text-align: center;">{{addUsersNameCtrl}}</h3>
 		<hr>
 		<form name="addUserForm">
-
-			<div class="alert alert-danger" role="alert" ng-show="userExit">Usuário já existe!!!</div>
-
+	
 			<input ng-model="user.name" type="text" name="nomeRegister" class="form-control" placeholder="Nome" ng-required="true">
 			<div class="forgot" ng-messages="addUserForm.nomeRegister.$error" ng-if="addUserForm.nomeRegister.$dirty">
 				<p ng-message="required">Nome é um campo obrigatório!</p>
@@ -35,13 +33,13 @@
 				<p ng-message="email">O e-mail é inválido!</p>
 			</div>
 
-			<input ng-model="user.password" type="password" name="senhaRegister" class="form-control" placeholder="Senha" ng-required="true">
+			<input ng-model="user.password" type="password" name="senhaRegister" class="form-control" placeholder="Senha" ng-required="true" ng-change="userPasswordChanged()">
 			<div class="forgot" ng-messages="addUserForm.senhaRegister.$error" ng-if="addUserForm.senhaRegister.$dirty">
 				<p ng-message="required">Senha é um campo obrigatório!</p>
 			</div>
-			
-			<input ng-model="newPassword" type="password" name="confirmSenhaRegister" class="form-control" placeholder="Confirmar senha" required="true" confirm-password="user.password">
-			<div class="forgot" ng-messages="addUserForm.confirmSenhaRegister.$error" ng-if="!addUserForm.confirmSenhaRegister.$pristine">
+
+			<input ng-model="confirmPassword" type="password" name="confirmSenhaRegister" class="form-control" placeholder="Confirmar senha" required="true" confirm-password="user.password">
+			<div class="forgot" ng-messages="addUserForm.confirmSenhaRegister.$error" ng-if="addUserForm.senhaRegister.$dirty">
 				<p ng-message="required">Confirmar a senha é obrigatório!</p>
 				<p ng-message="confirm">As senhas devem conferir!</p>
 			</div>

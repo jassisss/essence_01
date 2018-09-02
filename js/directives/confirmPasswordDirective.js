@@ -10,21 +10,26 @@
                 confirmPassword: '='
             },
             link: function (scope, element, attrs, ctrl) {
+
+            	var _isValid = true;
+
                 var _formatInput = function (data) {
-                	
                     return data;
                 };
 
                 element.bind("keyup", function () {
-                    ctrl.$setViewValue(_formatInput(ctrl.$viewValue));
-                    ctrl.$render();
+                	if (scope.confirmPassword) {
+	            	    var _isValid = (ctrl.$viewValue === scope.confirmPassword);
+	            		ctrl.$setValidity('confirm', _isValid);                    
+	            		ctrl.$setViewValue(_formatInput(ctrl.$viewValue));
+	                    ctrl.$render();
+                	}
                 });
 
                 ctrl.$parsers.push(function (value) {
-                    if (value.length >= scope.confirmPassword.length) {
-                        var isValid = (value === scope.confirmPassword);
-                        return ctrl.$setValidity('confirm', isValid);;
-                    }
+                	if (_isValid){
+                        return value; 
+                	}
                 });
 
             }

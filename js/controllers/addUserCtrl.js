@@ -6,8 +6,7 @@ app.controller('addUserCtrl', function($scope, $location, idGenerator, users, ty
 
 	$scope.users = users.data;
 	$scope.types = types.data;
-	$scope.newPassword = '';
-	$scope.newPassword.$setPristine();
+	$scope.confirmPassword = '';
 	$scope.userExit = false;
 
 	$scope.reloadAddUser = function () {
@@ -16,6 +15,14 @@ app.controller('addUserCtrl', function($scope, $location, idGenerator, users, ty
 		$scope.addUserForm.$setPristine();
 		$location.path("/addUser");
 		$scope.userExit = false;
+	};
+
+	$scope.userPasswordChanged = function () {
+
+		if ($scope.users.password !== $scope.confirmPassword) {
+			$scope.confirmPassword = '';
+		};
+
 	};
 
 	$scope.addUser = function (user) {
@@ -30,7 +37,6 @@ app.controller('addUserCtrl', function($scope, $location, idGenerator, users, ty
 			$scope.userExit = true;
 			delete $scope.user;
 			$scope.newPassword = '';
-			$scope.newPassword.$setPristine();
 			$scope.addUserForm.$setPristine();
 		});
 	};

@@ -18,6 +18,11 @@ app.config(function ($routeProvider) {
 	$routeProvider.when("/register", {
 		templateUrl: "view/registerView.html",
 		controller: "registerCtrl",
+		resolve: {
+			users: function(usersApi) {
+				return usersApi.getUsers();
+			},
+		}
 	});
 	
 	$routeProvider.when("/forgot", {
