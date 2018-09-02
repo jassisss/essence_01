@@ -35,7 +35,7 @@ app.controller('registerCtrl', function ($scope, $location, idGenerator, users, 
 		user.idUser = idGenerator.generate($scope.users);
 		user.creationDate= new Date();
 		user.modifyDate= new Date();
-		user.type = {'idType': 2, name: 'Visitante'};
+		user.type = {'idType': 2, name: 'Visitante', code: 2};
 		usersApi.saveUser(user).success(function (data) {
 			delete $scope.user;
 			$scope.registerForm.$setPristine();
