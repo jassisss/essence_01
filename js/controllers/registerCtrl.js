@@ -14,6 +14,7 @@ app.controller('registerCtrl', function ($scope, $location, idGenerator, users, 
 	$scope.users = users.data;
 	$scope.confirmPassword = '';
 	$scope.userExit = false;
+	$scope.emailExist = '';
 
 	$scope.resetRegisterForm = function () {
 		delete $scope.register;
@@ -41,7 +42,8 @@ app.controller('registerCtrl', function ($scope, $location, idGenerator, users, 
 			$location.path("/login");
 		}).error(function() {
 			$scope.userExit = true;
-			delete $scope.user;
+			$scope.emailExist = user.email;
+			delete $scope.register;
 			$scope.confirmPassword = '';
 			$scope.registerForm.$setPristine();
 		});

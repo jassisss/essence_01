@@ -8,10 +8,11 @@ app.controller('addUserCtrl', function($scope, $location, idGenerator, users, ty
 	$scope.types = types.data;
 	$scope.confirmPassword = '';
 	$scope.userExit = false;
+	$scope.emailExist = '';
 
 	$scope.reloadAddUser = function () {
 		delete $scope.user;
-		$scope.newPassword = '';
+		$scope.confirmPassword = '';
 		$scope.addUserForm.$setPristine();
 		$location.path("/addUser");
 		$scope.userExit = false;
@@ -35,9 +36,11 @@ app.controller('addUserCtrl', function($scope, $location, idGenerator, users, ty
 			$location.path("/listUsers");
 		}).error(function() {
 			$scope.userExit = true;
+			$scope.emailExist = user.email;
 			delete $scope.user;
-			$scope.newPassword = '';
+			$scope.confirmPassword = '';
 			$scope.addUserForm.$setPristine();
+			$location.path("/addUser");
 		});
 	};
 
