@@ -36,11 +36,11 @@ app.controller('registerCtrl', function ($scope, $location, idGenerator, users, 
 		user.creationDate= new Date();
 		user.modifyDate= new Date();
 		user.type = {'idType': 2, name: 'Visitante', code: 2};
-		usersApi.saveUser(user).success(function (data) {
+		usersApi.saveUser(user).then(function onSuccess(response) {
 			delete $scope.user;
 			$scope.registerForm.$setPristine();
 			$location.path("/login");
-		}).error(function() {
+		}).catch(function onError(response) {
 			$scope.userExit = true;
 			$scope.emailExist = user.email;
 			delete $scope.register;

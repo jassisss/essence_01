@@ -7,16 +7,16 @@ function loginCtrl ($scope, $location, usersApi) {
 	$scope.userNotExit = false;
 
 	$scope.validateUser = function (login) {
-		usersApi.loginUser(login).success(function (data) {
+		usersApi.loginUser(login).then(function onSuccess(response) {
 			delete $scope.login;
 			$scope.userNotExit = false;
 			$scope.loginForm.$setPristine();
-			if (data.type.name === 'Administrador') {
+			if (response.data.type.name === 'Administrador') {
 				$location.path("/adminUser");
 			}else{
 				$location.path("/visitorUser");
 			}
-		}).error(function() {
+		}).catch(function onError(response) {
 			$scope.userNotExit = true;
 			delete $scope.login;
 			$scope.loginForm.$setPristine();

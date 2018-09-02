@@ -7,13 +7,13 @@ app.controller('deleteUserCtrl', function($scope, $location, usersApi) {
 	$scope.user = [];
 
 	var loadUser = function () {
-		usersApi.getUser($scope.idUserSelected).success(function (data) {
-			$scope.user = data;
+		usersApi.getUser($scope.idUserSelected).then(function onSuccess(response) {
+			$scope.user = response.data;
 		});
 	};
 
 	$scope.deleteUser = function () {
-		usersApi.deleteUser($scope.idUserSelected).success(function (data) {
+		usersApi.deleteUser($scope.idUserSelected).then(function onSuccess(response) {
 			$location.path("/listUsers");
 		});
 	};

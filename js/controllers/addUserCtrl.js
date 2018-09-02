@@ -30,11 +30,11 @@ app.controller('addUserCtrl', function($scope, $location, idGenerator, users, ty
 		user.idUser = idGenerator.generate($scope.users);
 		user.creationDate= new Date();
 		user.modifyDate= new Date();
-		usersApi.saveUser(user).success(function (data) {
+		usersApi.saveUser(user).then(function onSuccess(response) {
 			delete $scope.user;
 			$scope.addUserForm.$setPristine();
 			$location.path("/listUsers");
-		}).error(function() {
+		}).catch(function onError(response) {
 			$scope.userExit = true;
 			$scope.emailExist = user.email;
 			delete $scope.user;
