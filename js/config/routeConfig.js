@@ -10,7 +10,7 @@
 
 		$routeProvider.when("/adminUser", {
 			templateUrl: "view/adminUserView.html",
-			controller: "loginCtrl",
+			controller: "adminUserCtrl",
 		});
 
 		$routeProvider.when("/visitorUser", {

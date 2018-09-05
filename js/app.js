@@ -1,4 +1,4 @@
-var app = angular.module("essence",["ngMessages", "ngRoute"]);
+var app = angular.module("essence",["ngMessages", "ngRoute", "ngMaterial"]);
 
 	app.run(function($rootScope) {
 	    $rootScope.idUserSelected = 0;
